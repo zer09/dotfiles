@@ -1,8 +1,8 @@
 if ! rpm -qa | grep vim-enhanced; then
-	sudo dnf install -y vim-enhanced
+	sudo dnf install -y vim-enhanced | tee -a "$log_file"
 	if type -p vim > /dev/null; then
-		echo "vim Installed" >> $log_file
+		echo "vim Installed\n\n" >> $log_file
 	else
-		echo "vim FAILED TO INSTALL!!!" >> $log_file
+		echo "vim FAILED TO INSTALL!!!\n\n" >> $log_file
 	fi
 fi
