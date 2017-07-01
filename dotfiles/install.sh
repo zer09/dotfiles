@@ -8,5 +8,6 @@ tee_log() {
 	tee -a "$log_file"
 }
 
-. ~/dotfiles/vim-install.sh
 . ~/dotfiles/nerd-fonts-install.sh
+. ~/dotfiles/vim-install.sh
+. ~/dotfiles/spacemacs-install.sh
