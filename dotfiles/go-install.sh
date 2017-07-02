@@ -11,7 +11,7 @@ mkdir -p $HOME/go/{src,pkg}
 cd $DOT_TEMP
 
 echo "Downloading $GO_DOWNLOAD ..." | tee_log
-curl -fLo "go.tar.gz" $GO_DOWNLOAD | tee_log
+wget $GO_DOWNLOAD -O "go.tar.gz" | tee_log
 sudo tar -C /usr/local -xzf "go.tar.gz" | tee_log
 echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bash_profile | tee_log
 echo "export GOPATH=\"\$HOME/go\"" >> ~/.bash_profile | tee_log
