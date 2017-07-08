@@ -13,3 +13,4 @@ tee_log() {
 . ~/dotfiles/vim-install.sh
 . ~/dotfiles/spacemacs-install.sh
 . ~/dotfiles/go-install.sh
+. ~/dotfiles/npm-install.sh
