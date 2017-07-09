@@ -11,6 +11,7 @@ tee_log() {
 
 . ~/dotfiles/nerd-fonts-install.sh
 . ~/dotfiles/vim-install.sh
+. ~/dotfiles/zsh-install.sh
 . ~/dotfiles/spacemacs-install.sh
 . ~/dotfiles/go-install.sh
 . ~/dotfiles/npm-install.sh
