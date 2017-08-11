@@ -6,3 +6,7 @@
 [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script)
 
 [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+
+[Autoend](https://marketplace.visualstudio.com/items?itemName=thousandtyone.autoend)
+
+[One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
