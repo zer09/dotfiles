@@ -40,12 +40,16 @@ This function should only modify configuration layer settings."
                       auto-completion-tab-key-behavior nil
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
+     (rebox :variables
+            rebox-enable-in-text-mode t)
      (ranger :variables
              ranger-enter-with-minus t
              ranger-show-hidden t
              ranger-max-preview-size 1)
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     (colors)
+     ;; (colors :variables
+     ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     (theming)
      (keyboard-layout :variables
                       kl-layout 'dvorak)
      (git)
@@ -60,11 +64,13 @@ This function should only modify configuration layer settings."
          go-use-gometalinter t
          gofmt-command "goimports"
          go-tab-width 4
+         flycheck-gometalinter-fast t
          flycheck-gometalinter-deadline "30s"
          flycheck-gometalinter-enable-linters '("testify"
                                                 "safesql"))
      (html)
-     (javascript)
+     (javascript :variables
+                 javascript-disable-tern-port-files nil)
      (python :variables
              python-enable-yapf-format-on-save t
              python-sort-imports-on-save t)
@@ -83,7 +89,7 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      emacs-lisp
      ;; git
-     ;; markdown
+     markdown
      org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -169,7 +175,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-vibrant
+   dotspacemacs-themes '(doom-molokai
                          spacemacs-dark
                          spacemacs-light)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
@@ -363,7 +369,7 @@ It should only modify the values of Spacemacs settings."
    ;; `trailing' to delete only the whitespace at end of lines, `changed' to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup t
+   dotspacemacs-whitespace-cleanup all
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
    dotspacemacs-zone-out-when-idle nil
@@ -376,8 +382,17 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq git-magit-status-fullscreen t)
-  (setq doom-vibrant-brighter-modeline t)
-  (setq doom-vibrant-brighter-comments t)
+  (setq doom-molokai-brighter-modeline t)
+  (setq doom-molokai-brighter-comments t)
+
+  (setq theming-modifications
+        '((doom-molokai
+           (powerline-active1 :foreground "#E9E2CB" :background "#2075C7")
+           (powerline-active2 :foreground "#E9E2CB" :background "#2075C7")
+           (powerline-inactive1 :foreground "#9370DB" :background "#222323")
+           (powerline-inactive2 :foreground "#9370DB" :background "#222323")
+           (git-gutter+-modified :foreground "#FFFF00")
+           )))
   )
 
 (defun dotspacemacs/user-config ()
@@ -393,7 +408,7 @@ before packages are loaded."
           "~/go/src/"
           "~/.spacemacs.d/"))
 
-  (setq-default evil-escape-key-sequence ".p")
+  (setq-default evil-escape-key-sequence ",.")
   (setq-default scroll-margin 4)
 
   (setq powerline-default-separator 'arrow-fade)
@@ -415,7 +430,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (impatient-mode htmlize org-projectile org-present org-pomodoro alert log4e gntp org-download org-brain gnuplot evil-org helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet doom-themes all-the-icons memoize font-lock+ sqlup-mode sql-indent yaml-mode insert-shebang flycheck-bashate fish-mode company-shell yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode cython-mode company-anaconda anaconda-mode pythonic protobuf-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode haml-mode emmet-mode company-web web-completion-data flycheck-gometalinter godoctor go-rename go-guru go-eldoc company-go go-mode systemd xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help ranger fasd rainbow-mode rainbow-identifiers color-identifiers-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl browse-at-remote smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor company-quickhelp fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete flycheck-pos-tip pos-tip flycheck flyspell-correct-ivy flyspell-correct auto-dictionary ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav editorconfig dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (sqlup-mode sql-indent yaml-mode insert-shebang flycheck-bashate fish-mode company-shell yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode cython-mode company-anaconda anaconda-mode pythonic web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode livid-mode skewer-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc impatient-mode simple-httpd haml-mode emmet-mode company-web web-completion-data company-tern dash-functional tern coffee-mode protobuf-mode godoctor go-rename go-guru go-eldoc flycheck-gometalinter company-go go-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help rainbow-mode rainbow-identifiers color-identifiers-mode rebox2 ranger fuzzy company-statistics company-quickhelp company auto-yasnippet yasnippet ac-ispell auto-complete flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck auto-dictionary systemd fasd orgit org-projectile org-present org-pomodoro alert log4e gntp org-download org-brain htmlize gnuplot evil-org mmm-mode markdown-toc markdown-mode gh-md smeargle magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-magit magit magit-popup git-commit with-editor diff-hl browse-at-remote ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav editorconfig dumb-jump popup f s doom-themes all-the-icons memoize font-lock+ diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
