@@ -10,3 +10,5 @@
 [Autoend](https://marketplace.visualstudio.com/items?itemName=thousandtyone.autoend)
 
 [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
+
+[Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
