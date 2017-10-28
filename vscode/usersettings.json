@@ -1,0 +1,62 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "editor.detectIndentation": false,
+    "files.autoSave": "off",
+    "eslint.autoFixOnSave": true,
+    "editor.parameterHints": false,
+    "workbench.colorTheme": "Gruvbox Dark (Medium Contrast)",
+    "autoend.autoInsertNewline": false,
+    "vim.leader": "<space>",
+    "vim.otherModesKeyBindings": [
+        {
+            "before": [
+                "t"
+            ],
+            "after": [
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "n"
+            ],
+            "after": [
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "s"
+            ],
+            "after": [
+                "l"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "t"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "n"
+            ]
+        },
+        {
+            "before": [
+                "l"
+            ],
+            "after": [
+                "s"
+            ]
+        }
+    ]
+}
