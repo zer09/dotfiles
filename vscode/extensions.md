@@ -11,4 +11,6 @@
 
 [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
 
+[Gruvbox](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox)
+
 [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
