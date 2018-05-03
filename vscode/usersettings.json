@@ -1,14 +1,16 @@
 {
-    "vim.disableAnnoyingNeovimMessage": true,
+    // "vim.disableAnnoyingNeovimMessage": true,
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
     "editor.detectIndentation": false,
     "files.autoSave": "off",
     "eslint.autoFixOnSave": true,
     "editor.parameterHints": false,
-    "workbench.colorTheme": "Gruvbox Dark (Medium Contrast)",
-    "autoend.autoInsertNewline": false,
+    // "vtools.autoHideSideBar": true,
+    // "vtools.autoHideDelay": 10,
     "vim.leader": "<space>",
+    "explorer.openEditors.visible": 0,
+    "typescript.autoImportSuggestions.enabled": false,
     "vim.otherModesKeyBindings": [
         {
             "before": [
@@ -58,5 +60,9 @@
                 "s"
             ]
         }
-    ]
+    ],
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "materialTheme.cache.workbench.settings": {
+        "themeColours": "Palenight"
+    }
 }
